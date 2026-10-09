@@ -1,0 +1,21 @@
+services:
+  jenkins-controller:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: chronos-jenkins
+    restart: unless-stopped
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      # Persistent storage for Jenkins pipelines, credentials, and job configurations
+      - jenkins_home_data:/var/jenkins_home
+      # Mount Docker socket so Jenkins can build and deploy Docker containers
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=true
+
+volumes:
+  jenkins_home_data:
+    driver: local

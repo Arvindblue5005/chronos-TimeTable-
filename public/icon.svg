@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="chronosGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#312e81" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#6366f1" />
+    </linearGradient>
+  </defs>
+  <!-- Background with safe zone padding -->
+  <rect width="512" height="512" rx="128" fill="#090d16" />
+  <rect x="24" y="24" width="464" height="464" rx="112" fill="url(#chronosGrad)" fill-opacity="0.15" stroke="#6366f1" stroke-width="6" stroke-opacity="0.3" />
+  
+  <!-- Outer Calendar / Clock Ring -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="#6366f1" stroke-width="12" stroke-dasharray="8 12" stroke-opacity="0.6" />
+  <circle cx="256" cy="256" r="148" fill="#0f172a" stroke="#818cf8" stroke-width="4" stroke-opacity="0.4" />
+  
+  <!-- Grid Matrix blocks (representing timetable blocks) -->
+  <rect x="160" y="170" width="80" height="44" rx="10" fill="#6366f1" />
+  <rect x="252" y="170" width="100" height="44" rx="10" fill="#38bdf8" />
+  <rect x="160" y="226" width="120" height="44" rx="10" fill="#10b981" />
+  <rect x="292" y="226" width="60" height="44" rx="10" fill="#f59e0b" />
+  <rect x="160" y="282" width="70" height="44" rx="10" fill="#ec4899" />
+  <rect x="242" y="282" width="110" height="44" rx="10" fill="#8b5cf6" />
+  
+  <!-- Security Shield & Keyhole symbol (representing E2EE) in center lower right -->
+  <g transform="translate(320, 310)">
+    <circle cx="24" cy="24" r="34" fill="#090d16" stroke="#38bdf8" stroke-width="4" />
+    <!-- Lock body -->
+    <rect x="12" y="18" width="24" height="20" rx="4" fill="url(#shieldGrad)" />
+    <!-- Lock shackle -->
+    <path d="M16 18 V12 A8 8 0 0 1 32 12 V18" fill="none" stroke="url(#shieldGrad)" stroke-width="4" stroke-linecap="round" />
+    <!-- Keyhole -->
+    <circle cx="24" cy="27" r="2.5" fill="#ffffff" />
+    <path d="M24 29.5 V33" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

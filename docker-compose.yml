@@ -1,0 +1,27 @@
+services:
+  chronos-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chronos-timetable:latest
+    container_name: chronos-timetable
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - VAULTS_DIR=/app/.sync_vaults
+    volumes:
+      # Persistent named volume for encrypted zero-knowledge vaults
+      - chronos_vaults_data:/app/.sync_vaults
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  chronos_vaults_data:
+    driver: local

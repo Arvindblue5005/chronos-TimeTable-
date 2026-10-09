@@ -1,0 +1,6 @@
+{
+  "name": "Chronos Timetable",
+  "description": "Encrypted timetable planner with drag-and-drop scheduling, recurring routines, multi-device sync, and productivity metrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
